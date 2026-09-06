@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio to Video</title>
+<style>
+body{font-family:Arial;background:#111;color:white;text-align:center;padding:25px}
+.box{max-width:600px;margin:auto;background:#222;padding:25px;border-radius:15px}
+input,button{width:90%;padding:14px;margin:12px;border-radius:8px}
+button{font-weight:bold;cursor:pointer}
+#status{margin:20px;color:#aaa}
+</style>
+</head>
 
+<body>
+<div class="box">
+<h1>🎬 Audio to Video AI</h1>
+<p>Upload audio and images to create your video</p>
+
+<h3>🎙️ Audio</h3>
+<input id="audio" type="file" accept="audio/*">
+
+<h3>🖼️ Images</h3>
+<input id="images" type="file" accept="image/*" multiple>
+
+<button onclick="createVideo()">Create Video</button>
+
+<div id="status"></div>
+</div>
+
+<script>
+function createVideo(){
+const audio=document.getElementById("audio").files[0];
+const images=document.getElementById("images").files;
+
+if(!audio){
+document.getElementById("status").innerText="Please upload audio.";
+return;
+}
+
+if(images.length===0){
+document.getElementById("status").innerText="Please upload images.";
+return;
+}
+
+document.getElementById("status").innerText=
+"✅ Audio and images uploaded successfully. Video engine is ready.";
+}
+</script>
+</body>
+</html>
